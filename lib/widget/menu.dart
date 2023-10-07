@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cafe_admin/router/app_router.dart';
 import 'dart:math' as math;
 
 import 'package:flutter_cafe_admin/widget/custom_expansion_tile.dart';
@@ -56,16 +58,37 @@ class _MenuWidgetState extends State<MenuWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: 140,
-          height: 100,
-          margin: const EdgeInsets.all(40),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
+        InkWell(
+          onTap: () {
+            context.router.pushNamed('user');
+          },
+          child: Container(
+            width: 140,
+            height: 100,
+            margin: const EdgeInsets.all(40),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text('Cafe Manager'),
           ),
-          child: Text('Cafe Manager'),
+        ),
+        InkWell(
+          onTap: () {
+            context.router.pushNamed('user2');
+          },
+          child: Container(
+            width: 140,
+            height: 100,
+            margin: const EdgeInsets.all(40),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text('Cafe Manager'),
+          ),
         ),
         ...menu.map(
           (e) => ParentMenuWidget(

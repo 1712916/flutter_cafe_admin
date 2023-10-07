@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'page/page.dart';
+import 'router/app_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final _appRouter = AppRouter();
+
+    return MaterialApp.router(
       builder: (context, child) => ResponsiveBreakpoints.builder(
         child: child!,
         breakpoints: [
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
           const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),
-      home: HomePage(),
+      routerConfig: _appRouter.config(),
     );
   }
 }
